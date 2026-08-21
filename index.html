@@ -1,0 +1,851 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parinita Nema — Ph.D. Candidate, IISER Bhopal</title>
+<meta name="description" content="Parinita Nema is a Ph.D. candidate in Data Science and Engineering at IISER Bhopal, working on continual and incremental learning for computer vision. Papers at BMVC, WACV, Interspeech and Expert Systems with Applications.">
+<meta name="author" content="Parinita Nema">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Parinita Nema — Ph.D. Candidate, IISER Bhopal">
+<meta property="og:description" content="Continual and incremental learning for computer vision. Papers at BMVC, WACV, Interspeech and Expert Systems with Applications.">
+<meta property="og:url" content="https://parinitanema.github.io/">
+<meta property="og:image" content="https://parinitanema.github.io/assets/portrait.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#0B1020;
+  --body-text:#3E4757;
+  --muted:#6B7688;
+  --paper:#FFFFFF;
+  --soft:#F4F6FB;
+  --line:#E3E8F0;
+
+  --indigo:#4338CA;
+  --violet:#7C3AED;
+  --rose:#E11D48;
+  --teal:#0D9488;
+  --amber:#C2620A;
+  --sky:#0369A1;
+
+  --display:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  --maxw:1120px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:80px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+body{
+  margin:0;background:var(--paper);color:var(--body-text);
+  font-family:var(--sans);font-size:18px;line-height:1.68;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+img{max-width:100%;display:block}
+[hidden]{display:none !important}
+:focus-visible{outline:3px solid var(--violet);outline-offset:3px;border-radius:4px}
+
+.skip{position:absolute;left:-9999px;background:var(--ink);color:#fff;padding:12px 18px;z-index:99;font-weight:600}
+.skip:focus{left:14px;top:14px}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+
+/* ---------------- nav ---------------- */
+.topbar{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;gap:20px;height:66px}
+.brand{font-family:var(--display);font-weight:800;font-size:19px;color:var(--ink);text-decoration:none;letter-spacing:-.02em;white-space:nowrap}
+.brand span{color:var(--violet)}
+.nav{margin-left:auto;display:flex;gap:26px;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{font-weight:600;font-size:15px;color:var(--muted);text-decoration:none;white-space:nowrap;padding:3px 0;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+.nav a:hover{color:var(--ink);border-bottom-color:var(--violet)}
+
+/* ---------------- hero ---------------- */
+.hero{position:relative;overflow:hidden;padding:70px 0 66px;
+  background:
+    radial-gradient(700px 420px at 12% -10%, rgba(124,58,237,.13), transparent 62%),
+    radial-gradient(620px 400px at 92% 8%, rgba(67,56,202,.13), transparent 60%),
+    radial-gradient(560px 360px at 60% 108%, rgba(13,148,136,.10), transparent 60%),
+    var(--soft);
+  border-bottom:1px solid var(--line);
+}
+.hero-grid{display:grid;grid-template-columns:1.28fr .72fr;gap:56px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:13.5px;font-weight:600;
+  letter-spacing:.05em;text-transform:uppercase;color:var(--violet);
+  background:rgba(124,58,237,.10);border:1px solid rgba(124,58,237,.22);
+  padding:7px 14px;border-radius:999px;margin:0 0 22px}
+.kicker .pulse{width:8px;height:8px;border-radius:50%;background:var(--violet)}
+
+h1{
+  font-family:var(--display);font-weight:800;
+  font-size:clamp(48px,8.4vw,88px);line-height:1.0;letter-spacing:-.035em;
+  margin:0 0 18px;color:var(--ink);
+  background:linear-gradient(96deg,#4338CA 0%,#7C3AED 42%,#DB2777 80%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  padding-bottom:.06em;
+}
+.role{font-family:var(--display);font-weight:700;font-size:clamp(21px,2.7vw,28px);
+  line-height:1.32;color:var(--ink);margin:0 0 12px;letter-spacing:-.015em}
+.where{font-size:18.5px;font-weight:500;color:var(--body-text);margin:0 0 22px}
+.where strong{color:var(--indigo);font-weight:700}
+.pitch{font-size:18px;color:var(--body-text);margin:0 0 30px;max-width:56ch}
+.pitch b{color:var(--ink);font-weight:700}
+
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:34px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:16px;text-decoration:none;
+  padding:14px 24px;border-radius:10px;border:2px solid transparent;transition:transform .16s,box-shadow .16s}
+.btn-solid{background:linear-gradient(96deg,var(--indigo),var(--violet));color:#fff;box-shadow:0 8px 20px rgba(67,56,202,.26)}
+.btn-solid:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(67,56,202,.34)}
+.btn-line{background:var(--paper);color:var(--ink);border-color:var(--line)}
+.btn-line:hover{border-color:var(--violet);color:var(--violet);transform:translateY(-2px)}
+
+.stats{display:grid;grid-template-columns:repeat(4,auto);gap:34px;justify-content:start;
+  border-top:1px solid var(--line);padding-top:24px}
+.stat .n{font-family:var(--display);font-weight:800;font-size:34px;line-height:1;letter-spacing:-.03em;display:block}
+.stat .l{font-size:14px;font-weight:600;color:var(--muted);margin-top:6px;display:block}
+.stat:nth-child(1) .n{color:var(--indigo)}
+.stat:nth-child(2) .n{color:var(--rose)}
+.stat:nth-child(3) .n{color:var(--teal)}
+.stat:nth-child(4) .n{color:var(--amber)}
+
+.portrait-box{justify-self:center;text-align:center}
+.frame{position:relative;display:inline-block;line-height:0}
+.frame::before{content:"";position:absolute;inset:-13px;border-radius:26px;
+  background:linear-gradient(140deg,var(--indigo),var(--violet) 48%,var(--rose));opacity:.92}
+.frame img{position:relative;width:100%;max-width:330px;aspect-ratio:1/1;object-fit:cover;
+  border-radius:18px;border:5px solid var(--paper);box-shadow:0 18px 40px rgba(11,16,32,.20)}
+.portrait-cap{margin:30px 0 0;font-family:var(--mono);font-size:13.5px;font-weight:600;color:var(--muted)}
+
+/* ---------------- section shell ---------------- */
+.sec{padding:74px 0;border-bottom:1px solid var(--line)}
+.sec.tint{background:var(--soft)}
+.sec-head{margin:0 0 38px}
+.eyebrow{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:13px;font-weight:600;
+  letter-spacing:.10em;text-transform:uppercase;margin:0 0 12px}
+.eyebrow::after{content:"";height:3px;flex:1;border-radius:2px;background:currentColor;opacity:.24}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(32px,4.6vw,46px);line-height:1.1;
+  letter-spacing:-.03em;color:var(--ink);margin:0 0 12px}
+.sec-head p{font-size:18px;color:var(--muted);margin:0;max-width:66ch}
+
+/* per-section colour */
+#research .eyebrow{color:var(--indigo)}
+#publications .eyebrow{color:var(--violet)}
+#achievements .eyebrow{color:var(--amber)}
+#projects .eyebrow{color:var(--teal)}
+#teaching .eyebrow{color:var(--sky)}
+#education .eyebrow{color:var(--rose)}
+#campus .eyebrow{color:var(--teal)}
+#contact .eyebrow{color:var(--violet)}
+
+/* ---------------- research ---------------- */
+.research-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.topic{border-left:5px solid var(--line);padding:4px 0 4px 20px;margin-bottom:26px}
+.topic:last-child{margin-bottom:0}
+.topic h3{font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:-.02em;color:var(--ink);margin:0 0 8px}
+.topic p{margin:0 0 10px;font-size:16.5px}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{font-family:var(--mono);font-size:12px;font-weight:600;padding:4px 10px;border-radius:6px}
+
+.plot-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px;
+  box-shadow:0 10px 30px rgba(11,16,32,.07);position:sticky;top:92px}
+.plot-title{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+  font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:12px}
+#space{display:block;width:100%;height:280px;border-radius:8px}
+.legend{list-style:none;margin:14px 0 0;padding:14px 0 0;border-top:1px solid var(--line);
+  display:grid;grid-template-columns:1fr 1fr;gap:4px 12px}
+.legend button{width:100%;display:flex;align-items:center;gap:9px;background:none;border:0;cursor:pointer;
+  padding:6px;border-radius:7px;font-family:var(--mono);font-size:13px;font-weight:600;color:var(--muted);text-align:left}
+.legend button:hover{background:var(--soft);color:var(--ink)}
+.legend .sw{width:11px;height:11px;border-radius:50%;flex:0 0 auto}
+.legend .yr{margin-left:auto;font-weight:500;opacity:.75}
+.plot-note{font-size:14px;color:var(--muted);margin:14px 0 0;line-height:1.55}
+
+/* ---------------- publications ---------------- */
+.pubs{list-style:none;margin:0;padding:0;display:grid;gap:20px}
+.pub{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:26px 28px;
+  display:grid;grid-template-columns:auto 1fr;gap:22px;
+  border-left:6px solid var(--violet);transition:transform .18s,box-shadow .18s}
+.pub:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(11,16,32,.10)}
+.pub .idx{font-family:var(--display);font-weight:800;font-size:30px;line-height:1;letter-spacing:-.03em;color:var(--line)}
+.pub h3{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.32;letter-spacing:-.02em;color:var(--ink);margin:0 0 10px}
+.auth{font-size:16px;color:var(--muted);margin:0 0 12px}
+.auth b{color:var(--ink);font-weight:700}
+.meta{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin:0 0 14px}
+.tag{font-family:var(--mono);font-size:12.5px;font-weight:600;padding:5px 11px;border-radius:7px}
+.tag.year{background:var(--soft);color:var(--muted)}
+.pub .gist{margin:0;font-size:16.5px}
+.fig{margin:18px 0 0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--soft)}
+.fig img{width:100%}
+.fig figcaption{font-size:13.5px;color:var(--muted);padding:12px 14px;background:var(--paper);border-top:1px solid var(--line)}
+
+/* ---------------- achievements ---------------- */
+.awards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.award{background:var(--paper);border:1px solid var(--line);border-top:5px solid var(--amber);
+  border-radius:14px;padding:24px;transition:transform .18s,box-shadow .18s}
+.award:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(11,16,32,.10)}
+.award .when{font-family:var(--mono);font-size:12.5px;font-weight:600;color:var(--amber);letter-spacing:.05em;text-transform:uppercase;margin:0 0 10px}
+.award h3{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.3;letter-spacing:-.02em;color:var(--ink);margin:0 0 8px}
+.award p{margin:0;font-size:15.5px;color:var(--muted)}
+.award.big{grid-column:span 3;border-top-color:var(--violet);
+  background:linear-gradient(100deg,rgba(124,58,237,.07),rgba(67,56,202,.05));
+  display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
+.award.big .when{color:var(--violet)}
+.award.big .amt{font-family:var(--display);font-weight:800;font-size:40px;letter-spacing:-.03em;color:var(--violet);line-height:1}
+.award.big h3{font-size:23px}
+
+/* ---------------- projects ---------------- */
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.project{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:28px;border-top:5px solid var(--teal)}
+.project:nth-child(2){border-top-color:var(--sky)}
+.project .badge{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);margin:0 0 12px}
+.project:nth-child(2) .badge{color:var(--sky)}
+.project h3{font-family:var(--display);font-weight:800;font-size:24px;letter-spacing:-.025em;color:var(--ink);margin:0 0 6px}
+.project .tagline{font-size:16px;font-weight:600;color:var(--muted);margin:0 0 14px}
+.project p:last-child{margin:0;font-size:16.5px}
+
+/* ---------------- lists (teaching / education) ---------------- */
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;grid-template-columns:180px 1fr;gap:26px;padding:20px 0;border-top:1px solid var(--line)}
+.tl li:first-child{border-top:0;padding-top:0}
+.tl .when{font-family:var(--mono);font-size:14px;font-weight:600;color:var(--sky)}
+.tl h3{font-family:var(--display);font-weight:700;font-size:19px;color:var(--ink);margin:0 0 3px;letter-spacing:-.015em}
+.tl p{margin:0;font-size:16px;color:var(--muted)}
+#education .tl .when{color:var(--rose)}
+
+/* ---------------- campus gallery ---------------- */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.shot{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--paper);box-shadow:0 8px 24px rgba(11,16,32,.07)}
+.shot img{width:100%;height:230px;object-fit:cover}
+.shot figcaption{padding:14px 16px;font-size:15px;font-weight:600;color:var(--ink)}
+.shot figcaption span{display:block;font-weight:400;font-size:14px;color:var(--muted);margin-top:2px}
+
+/* ---------------- contact ---------------- */
+.contact-card{background:linear-gradient(120deg,#4338CA,#7C3AED 55%,#DB2777);border-radius:20px;
+  padding:52px 48px;color:#fff;box-shadow:0 20px 50px rgba(67,56,202,.28)}
+.contact-card h2{color:#fff;margin-bottom:14px}
+.contact-card p{color:rgba(255,255,255,.92);font-size:18px;margin:0 0 28px;max-width:60ch}
+.contact-links{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:12px}
+.contact-links a{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.32);
+  color:#fff;text-decoration:none;font-weight:700;font-size:16px;padding:13px 22px;border-radius:10px;transition:background .16s,transform .16s}
+.contact-links a:hover{background:rgba(255,255,255,.28);transform:translateY(-2px)}
+
+footer{padding:34px 0 52px;background:var(--paper)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-size:15px;color:var(--muted)}
+
+/* ---------------- responsive ---------------- */
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .portrait-box{margin-top:6px}
+  .frame img{max-width:260px}
+  .research-grid{grid-template-columns:1fr;gap:34px}
+  .plot-card{position:static}
+  .awards{grid-template-columns:1fr 1fr}
+  .award.big{grid-column:span 2}
+  .projects{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  body{font-size:17px}
+  .wrap{padding:0 20px}
+  .hero{padding:46px 0 48px}
+  .sec{padding:52px 0}
+  .stats{grid-template-columns:1fr 1fr;gap:22px 30px}
+  .awards{grid-template-columns:1fr}
+  .award.big{grid-column:span 1;grid-template-columns:1fr;gap:12px}
+  .pub{grid-template-columns:1fr;gap:12px;padding:22px}
+  .pub .idx{font-size:24px}
+  .tl li{grid-template-columns:1fr;gap:5px}
+  .legend{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr}
+  .contact-card{padding:34px 24px}
+  .frame img{max-width:230px}
+  .portrait-cap{margin-top:24px;font-size:12.5px}
+  .btn{width:100%;justify-content:center}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top">Parinita <span>Nema</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#projects">Projects</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="kicker"><span class="pulse"></span> Ph.D. Candidate · Since 2022</p>
+      <h1>Parinita Nema</h1>
+      <p class="role">Deep Learning &amp; Continual Learning Researcher</p>
+      <p class="where">Department of Data Science and Engineering,<br><strong>IISER Bhopal</strong> · Supervisor: Prof. Vinod K Kurmi</p>
+      <p class="pitch">I build vision models that keep learning from a live data stream — absorbing new classes as they arrive <b>without forgetting</b> the ones they already know, and without storing old data or being told where one task ends and the next begins.</p>
+      <div class="cta">
+        <a class="btn btn-solid" href="assets/Parinita_Nema_CV.pdf">Download CV</a>
+        <a class="btn btn-line" href="#publications">View Publications</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><span class="n">4</span><span class="l">Publications</span></div>
+        <div class="stat"><span class="n">2</span><span class="l">Accepted in 2026</span></div>
+        <div class="stat"><span class="n">6</span><span class="l">Semesters TA</span></div>
+        <div class="stat"><span class="n">1</span><span class="l">Research Grant</span></div>
+      </div>
+    </div>
+    <div class="portrait-box">
+      <div class="frame"><img src="assets/portrait.jpg" alt="Parinita Nema" width="330" height="330"></div>
+      <p class="portrait-cap">IISER Bhopal · Madhya Pradesh, India</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RESEARCH ================= -->
+<section class="sec" id="research">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Research Interests</p>
+      <h2>Learning that never stops</h2>
+      <p>Every thread below returns to one question: what must stay fixed, and what is allowed to move, when a model meets a class it has never seen before?</p>
+    </div>
+
+    <div class="research-grid">
+      <div>
+        <article class="topic" style="border-left-color:var(--rose)">
+          <h3>Few-shot class-incremental learning</h3>
+          <p>Each new class arrives with only a handful of samples, so almost everything rides on how good the base representation was beforehand. I shape that base feature space through feature augmentation, leaving room for classes it was never trained on.</p>
+          <div class="chips">
+            <span class="chip" style="background:rgba(225,29,72,.10);color:var(--rose)">WACV 2025</span>
+            <span class="chip" style="background:rgba(225,29,72,.10);color:var(--rose)">Feature augmentation</span>
+          </div>
+        </article>
+
+        <article class="topic" style="border-left-color:var(--violet)">
+          <h3>Online task-free continual learning</h3>
+          <p>Real data does not arrive in tidy labelled tasks. It arrives once, in a single pass, with classes quietly mixing and shifting. GOFOR handles this with no gradient updates at all — an orthogonal random projection, prototypes separated using the running covariance, and a drift detector that decides when the model may change.</p>
+          <div class="chips">
+            <span class="chip" style="background:rgba(124,58,237,.10);color:var(--violet)">BMVC 2026</span>
+            <span class="chip" style="background:rgba(124,58,237,.10);color:var(--violet)">Exemplar-free</span>
+            <span class="chip" style="background:rgba(124,58,237,.10);color:var(--violet)">Gradient-free</span>
+          </div>
+        </article>
+
+        <article class="topic" style="border-left-color:var(--teal)">
+          <h3>Multimodal &amp; audio–visual learning</h3>
+          <p>Vision is not the only stream that keeps growing. I work on class-incremental learning where audio and video must be reconciled, and on speech recognition that adapts across Indian languages instead of being retrained from scratch for each one.</p>
+          <div class="chips">
+            <span class="chip" style="background:rgba(13,148,136,.10);color:var(--teal)">ESWA 2026</span>
+            <span class="chip" style="background:rgba(13,148,136,.10);color:var(--teal)">Interspeech 2024</span>
+            <span class="chip" style="background:rgba(13,148,136,.10);color:var(--teal)">Multilingual speech</span>
+          </div>
+        </article>
+      </div>
+
+      <figure class="plot-card">
+        <figcaption class="plot-title">
+          <span>Feature space</span>
+          <span id="plot-status">4 of 4 retained</span>
+        </figcaption>
+        <canvas id="space" role="img" aria-label="An animated scatter plot in which four coloured clusters appear one after another, each standing for one of Parinita Nema's four papers. Earlier clusters stay in place as new ones arrive."></canvas>
+        <ul class="legend" id="legend"></ul>
+        <p class="plot-note">Each cluster is one of my papers, arriving in publication order. Nothing that arrived earlier is pushed aside — that is exactly the problem continual learning has to solve.</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PUBLICATIONS ================= -->
+<section class="sec tint" id="publications">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Publications</p>
+      <h2>Peer-reviewed papers</h2>
+      <p>Four papers across computer vision, speech and applied AI venues — two of them accepted in 2026.</p>
+    </div>
+
+    <ol class="pubs">
+
+      <li class="pub" id="bmvc26" data-cluster="bmvc26" style="border-left-color:var(--violet)">
+        <span class="idx">01</span>
+        <div>
+          <h3>Gradient-Free Orthogonal Feature Organization for Online Task-Free Class-Incremental Learning</h3>
+          <p class="auth"><b>Parinita Nema</b>, Vinod K Kurmi</p>
+          <p class="meta">
+            <span class="tag" style="background:rgba(124,58,237,.12);color:var(--violet)">BMVC 2026</span>
+            <span class="tag" style="background:rgba(124,58,237,.12);color:var(--violet)">Accepted</span>
+            <span class="tag year">British Machine Vision Conference</span>
+          </p>
+          <p class="gist">Organises the feature space through closed-form updates instead of backpropagation, stores no exemplars, and refreshes only when a Sliced-Wasserstein drift detector confirms the stream has actually moved. Improves on prior work by up to <b>14.5%</b> across CIFAR-10, CIFAR-100, CORe50 and CUB-200.</p>
+          <figure class="fig">
+            <img src="assets/gofor-framework.png" alt="The GOFOR framework: an online task-free stream feeds a frozen encoder, followed by drift detection, covariance-aware prototype dispersion, and a multi-head orthogonal random feature projection.">
+            <figcaption>GOFOR — drift detection, covariance-aware prototype dispersion, and multi-head ORF organisation over a frozen encoder.</figcaption>
+          </figure>
+          <!-- When the paper goes online, add links here:
+          <p class="meta"><a href="PASTE_PDF_URL">PDF</a> · <a href="PASTE_CODE_URL">Code</a></p>
+          -->
+        </div>
+      </li>
+
+      <li class="pub" id="eswa26" data-cluster="eswa26" style="border-left-color:var(--teal)">
+        <span class="idx">02</span>
+        <div>
+          <h3>PromptCIL: Feature-Guided Prompting for Audio-Visual Class-Incremental Learning</h3>
+          <p class="auth">Rini Smita Thakur, Aditya Kumar Singh, <b>Parinita Nema</b>, Vinod Kumar Kurmi</p>
+          <p class="meta">
+            <span class="tag" style="background:rgba(13,148,136,.12);color:var(--teal)">ESWA 2026</span>
+            <span class="tag" style="background:rgba(13,148,136,.12);color:var(--teal)">In press</span>
+            <span class="tag year">Expert Systems with Applications · Elsevier</span>
+          </p>
+          <p class="gist">Feature-guided prompting for class-incremental learning when the arriving classes are audio-visual rather than image-only.</p>
+        </div>
+      </li>
+
+      <li class="pub" id="wacv25" data-cluster="wacv25" style="border-left-color:var(--rose)">
+        <span class="idx">03</span>
+        <div>
+          <h3>Strategic Base Representation Learning via Feature Augmentations for Few-Shot Class Incremental Learning</h3>
+          <p class="auth"><b>Parinita Nema</b>, Vinod K Kurmi</p>
+          <p class="meta">
+            <span class="tag" style="background:rgba(225,29,72,.12);color:var(--rose)">WACV 2025</span>
+            <span class="tag year">IEEE/CVF WACV · pp. 6394–6403</span>
+          </p>
+          <p class="gist">Builds a base representation that leaves usable room for classes it has not met yet, so the few-shot sessions that follow are not fighting the backbone.</p>
+        </div>
+      </li>
+
+      <li class="pub" id="interspeech24" data-cluster="interspeech24" style="border-left-color:var(--indigo)">
+        <span class="idx">04</span>
+        <div>
+          <h3>Towards Robust Few-Shot Class Incremental Learning in Audio Classification Using Contrastive Representation</h3>
+          <p class="auth">Riyansha Singh, <b>Parinita Nema</b>, Vinod K Kurmi</p>
+          <p class="meta">
+            <span class="tag" style="background:rgba(67,56,202,.12);color:var(--indigo)">Interspeech 2024</span>
+            <span class="tag year">pp. 5023–5027</span>
+          </p>
+          <p class="gist">Carries the few-shot incremental setting over to audio, using contrastive representations to keep earlier sound classes separable.</p>
+        </div>
+      </li>
+
+    </ol>
+  </div>
+</section>
+
+<!-- ================= ACHIEVEMENTS ================= -->
+<section class="sec" id="achievements">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Achievements</p>
+      <h2>Grants, awards &amp; honours</h2>
+    </div>
+
+    <div class="awards">
+      <article class="award big">
+        <div><span class="amt">₹30,000</span></div>
+        <div>
+          <p class="when">August 2026 · Research Grant</p>
+          <h3>Student Innovation Grant (SIG) 3.0</h3>
+          <p>Awarded by the Innovation &amp; Incubation Centre for Entrepreneurship (IICE), IISER Bhopal, to develop <strong>VaaniAdapt</strong> — a continual learning platform for multilingual Indian-language speech recognition.</p>
+        </div>
+      </article>
+
+      <article class="award">
+        <p class="when">July 2026</p>
+        <h3>Prize, 3-Minute Research Presentation</h3>
+        <p>Symposium on Energy and AI, IISER Bhopal — for <em>Continual Learning for Smart Building Energy Forecasting</em>.</p>
+      </article>
+
+      <article class="award">
+        <p class="when">2025</p>
+        <h3>ACM-W Scholarship</h3>
+        <p>Awarded to support attendance and presentation at WACV 2025.</p>
+      </article>
+
+      <article class="award">
+        <p class="when">2021</p>
+        <h3>NET-JRF</h3>
+        <p>UGC National Eligibility Test — Junior Research Fellowship, Computer Science and Applications.</p>
+      </article>
+
+      <article class="award">
+        <p class="when">2020</p>
+        <h3>Department Prize</h3>
+        <p>Outstanding Student Performance, Vikram University, Ujjain.</p>
+      </article>
+
+      <article class="award">
+        <p class="when">2023</p>
+        <h3>CVIT Summer School</h3>
+        <p>Selected participant, Computer Vision summer school at IIIT Hyderabad.</p>
+      </article>
+
+      <article class="award">
+        <p class="when">2023</p>
+        <h3>SERB Karyashala Workshop</h3>
+        <p>Healthcare services and affective computing using deep learning, IIT Indore.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section class="sec tint" id="projects">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Projects</p>
+      <h2>Work in progress</h2>
+      <p>Taking continual learning out of the benchmark and pointing it at problems with a user on the other end.</p>
+    </div>
+
+    <div class="projects">
+      <article class="project">
+        <p class="badge">Funded · SIG 3.0 · 2026–present</p>
+        <h3>VaaniAdapt</h3>
+        <p class="tagline">Continual learning for multilingual speech recognition</p>
+        <p>A speech recognition platform that adapts across Indian languages as it goes, rather than being retrained from scratch for every new one. Supported by a Student Innovation Grant from IICE, IISER Bhopal.</p>
+      </article>
+
+      <article class="project">
+        <p class="badge">Award-winning · 2026</p>
+        <h3>Smart Building Energy Forecasting</h3>
+        <p class="tagline">Continual learning on non-stationary energy data</p>
+        <p>Building energy demand shifts with seasons, occupancy and equipment — the same non-stationarity problem, in a setting where being wrong wastes power. Presented at the Symposium on Energy and AI, IISER Bhopal.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TEACHING ================= -->
+<section class="sec" id="teaching">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Teaching</p>
+      <h2>Teaching assistantship</h2>
+      <p>Six semesters at IISER Bhopal, across the introductory programming course and both deep learning courses.</p>
+    </div>
+    <ul class="tl">
+      <li><span class="when">Jan – May 2026</span><div><h3>Introduction to Programming</h3><p>Teaching Assistant · IISER Bhopal</p></div></li>
+      <li><span class="when">Jul – Nov 2025</span><div><h3>Advanced Deep Learning</h3><p>Teaching Assistant · IISER Bhopal</p></div></li>
+      <li><span class="when">Jan – May 2025</span><div><h3>Deep Learning</h3><p>Teaching Assistant · IISER Bhopal</p></div></li>
+      <li><span class="when">Jul – Nov 2024</span><div><h3>Advanced Deep Learning</h3><p>Teaching Assistant · IISER Bhopal</p></div></li>
+      <li><span class="when">Jan – May 2024</span><div><h3>Deep Learning</h3><p>Teaching Assistant · IISER Bhopal</p></div></li>
+      <li><span class="when">Jan – May 2023</span><div><h3>Introduction to Programming</h3><p>Teaching Assistant · IISER Bhopal</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= EDUCATION ================= -->
+<section class="sec tint" id="education">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Education</p>
+      <h2>Academic background</h2>
+    </div>
+    <ul class="tl">
+      <li>
+        <span class="when">2022 – Present</span>
+        <div>
+          <h3>Ph.D., Data Science and Engineering</h3>
+          <p>IISER Bhopal · Thesis: <em>Incremental Learning in Computer Vision</em> · Supervisor: Prof. Vinod K Kurmi · CPI 8.5/10</p>
+        </div>
+      </li>
+      <li>
+        <span class="when">2018 – 2020</span>
+        <div><h3>M.Sc., Computer Science</h3><p>Vikram University, Ujjain · 82.58%</p></div>
+      </li>
+      <li>
+        <span class="when">2014 – 2017</span>
+        <div><h3>B.Sc., Computer Science</h3><p>Vikram University, Ujjain · 72.30%</p></div>
+      </li>
+      <li>
+        <span class="when">2017 – 2018</span>
+        <div><h3>PGDCA</h3><p>Post Graduate Diploma in Computer Applications</p></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= CAMPUS ================= -->
+<!-- This whole section hides itself until you add photos to assets/campus/.
+     See README.md for the exact filenames. -->
+<section class="sec" id="campus" hidden>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Where I work</p>
+      <h2>IISER Bhopal</h2>
+      <p>Indian Institute of Science Education and Research Bhopal, Bhauri, Madhya Pradesh.</p>
+    </div>
+    <div class="gallery" id="gallery">
+      <figure class="shot">
+        <img src="assets/campus/campus-1.jpg" alt="IISER Bhopal campus">
+        <figcaption>IISER Bhopal<span>Bhauri campus, Madhya Pradesh</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/campus/campus-2.jpg" alt="Department of Data Science and Engineering">
+        <figcaption>Data Science &amp; Engineering<span>My department</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/campus/campus-3.jpg" alt="Research group at IISER Bhopal">
+        <figcaption>Research group<span>Working with Prof. Vinod K Kurmi</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="sec" id="contact" style="border-bottom:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Contact</p>
+    </div>
+    <div class="contact-card">
+      <h2>Let's talk research</h2>
+      <p>I am always glad to discuss continual learning, and open to collaborations, internships and reviewing. Department of Data Science and Engineering, IISER Bhopal, Bhauri, Madhya Pradesh 462066, India.</p>
+      <ul class="contact-links">
+        <li><a href="mailto:parinita22@iiserb.ac.in">parinita22@iiserb.ac.in</a></li>
+        <li><a href="https://github.com/Parinitanema">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/parinita-nema-9313aa263">LinkedIn</a></li>
+        <!-- Add your Google Scholar profile:
+        <li><a href="PASTE_SCHOLAR_URL">Google Scholar</a></li>
+        -->
+        <li><a href="assets/Parinita_Nema_CV.pdf">Download CV</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Parinita Nema · IISER Bhopal</span>
+    <span>Last updated August 2026</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------- hero feature-space plot ---------- */
+  var CLASSES = [
+    { id:"interspeech24", label:"Interspeech", year:"2024", varName:"--indigo", cx:0.20, cy:0.36, sx:0.058, sy:0.032, rot:-0.55 },
+    { id:"wacv25",        label:"WACV",        year:"2025", varName:"--rose",   cx:0.56, cy:0.16, sx:0.050, sy:0.034, rot: 0.72 },
+    { id:"eswa26",        label:"ESWA",        year:"2026", varName:"--teal",   cx:0.33, cy:0.76, sx:0.055, sy:0.030, rot: 0.24 },
+    { id:"bmvc26",        label:"BMVC",        year:"2026", varName:"--violet", cx:0.77, cy:0.60, sx:0.052, sy:0.036, rot:-0.95 }
+  ];
+
+  var POINTS = 46, APPEAR_STEP = 1250, GROW = 850;
+
+  var canvas = document.getElementById("space");
+  var legendEl = document.getElementById("legend");
+  var statusEl = document.getElementById("plot-status");
+
+  if (canvas && canvas.getContext && legendEl) {
+    var ctx = canvas.getContext("2d");
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var css = getComputedStyle(document.documentElement);
+    var gridColor = (css.getPropertyValue("--line") || "").trim() || "#E3E8F0";
+    var active = null, W = 0, H = 0, start = null;
+
+    var hexA = function (hex, a) {
+      hex = (hex || "#4338CA").replace("#", "");
+      if (hex.length === 3) hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+      var n = parseInt(hex, 16);
+      return "rgba(" + ((n >> 16) & 255) + "," + ((n >> 8) & 255) + "," + (n & 255) + "," + a + ")";
+    };
+    var rng = function (seed) {
+      var s = seed >>> 0;
+      return function () { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; };
+    };
+    var gauss = function (rand) {
+      var u = 1 - rand(), v = rand();
+      return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+    };
+
+    CLASSES.forEach(function (c, i) {
+      var rand = rng(1009 + i * 7717);
+      var cos = Math.cos(c.rot), sin = Math.sin(c.rot);
+      c.color = (css.getPropertyValue(c.varName) || "").trim() || "#4338CA";
+      c.points = [];
+      for (var k = 0; k < POINTS; k++) {
+        var a = gauss(rand) * c.sx, b = gauss(rand) * c.sy;
+        c.points.push({
+          x: c.cx + a * cos - b * sin,
+          y: c.cy + a * sin + b * cos,
+          r: 1.7 + rand() * 1.6,
+          ph: rand() * Math.PI * 2,
+          sp: 0.25 + rand() * 0.5
+        });
+      }
+    });
+
+    var resize = function () {
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      var rect = canvas.getBoundingClientRect();
+      W = rect.width; H = rect.height;
+      if (!W || !H) return;
+      canvas.width = Math.round(W * dpr);
+      canvas.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+
+    var star = function (x, y, r, color) {
+      ctx.save(); ctx.translate(x, y);
+      ctx.beginPath(); ctx.arc(0, 0, r * 1.75, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(255,255,255,.94)"; ctx.fill();
+      ctx.beginPath();
+      for (var i = 0; i < 8; i++) {
+        var rad = (i % 2 === 0) ? r : r * 0.42;
+        var ang = (Math.PI / 4) * i - Math.PI / 2;
+        var px = Math.cos(ang) * rad, py = Math.sin(ang) * rad;
+        if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+      }
+      ctx.closePath();
+      ctx.fillStyle = color; ctx.strokeStyle = "#fff"; ctx.lineWidth = 1.5;
+      ctx.stroke(); ctx.fill(); ctx.restore();
+    };
+
+    var drawGrid = function () {
+      ctx.strokeStyle = gridColor; ctx.lineWidth = 1;
+      for (var i = 1; i < 6; i++) {
+        var x = Math.round((W * i) / 6) + 0.5, y = Math.round((H * i) / 6) + 0.5;
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+      }
+    };
+
+    var easeOut = function (t) { return 1 - Math.pow(1 - t, 3); };
+
+    var frame = function (now) {
+      if (!W || !H) resize();
+      if (start === null) start = now || 0;
+      var t = reduce ? 1e9 : (now || 0) - start;
+
+      ctx.clearRect(0, 0, W, H);
+      drawGrid();
+      var settled = 0;
+
+      CLASSES.forEach(function (c, i) {
+        var p = reduce ? 1 : Math.max(0, Math.min(1, (t - i * APPEAR_STEP) / GROW));
+        if (p <= 0) return;
+        var e = easeOut(p);
+        if (p >= 1) settled++;
+
+        var dim = (active && active !== c.id) ? 0.14 : 1;
+        var drift = reduce ? 0 : Math.min(1, Math.max(0, (t - i * APPEAR_STEP - GROW) / 1000));
+
+        var gx = c.cx * W, gy = c.cy * H;
+        var rad = Math.max(c.sx, c.sy) * Math.min(W, H) * 3.1;
+        var grad = ctx.createRadialGradient(gx, gy, 0, gx, gy, rad);
+        grad.addColorStop(0, hexA(c.color, 0.15 * e * dim));
+        grad.addColorStop(1, hexA(c.color, 0));
+        ctx.fillStyle = grad;
+        ctx.beginPath(); ctx.arc(gx, gy, rad, 0, Math.PI * 2); ctx.fill();
+
+        ctx.fillStyle = hexA(c.color, 0.9 * dim);
+        c.points.forEach(function (pt) {
+          var wob = drift * 2.2;
+          var px = (c.cx + (pt.x - c.cx) * e) * W + Math.sin(t / 1400 * pt.sp + pt.ph) * wob;
+          var py = (c.cy + (pt.y - c.cy) * e) * H + Math.cos(t / 1600 * pt.sp + pt.ph) * wob;
+          ctx.beginPath(); ctx.arc(px, py, pt.r * (0.5 + 0.5 * e), 0, Math.PI * 2); ctx.fill();
+        });
+
+        star(gx, gy, 6.6 * e, hexA(c.color, dim));
+      });
+
+      if (statusEl) statusEl.textContent = settled + " of 4 retained";
+      if (reduce) return;
+      requestAnimationFrame(frame);
+    };
+
+    var redraw = function () { if (reduce) requestAnimationFrame(frame); };
+
+    CLASSES.slice().reverse().forEach(function (c) {
+      var li = document.createElement("li");
+      var b = document.createElement("button");
+      b.type = "button";
+      b.innerHTML = '<span class="sw" style="background:' + c.color + '"></span><span>' +
+                    c.label + '</span><span class="yr">' + c.year + '</span>';
+      b.setAttribute("aria-label", "Jump to the " + c.label + " " + c.year + " paper");
+      b.addEventListener("mouseenter", function () { active = c.id; redraw(); });
+      b.addEventListener("mouseleave", function () { active = null; redraw(); });
+      b.addEventListener("focus",      function () { active = c.id; redraw(); });
+      b.addEventListener("blur",       function () { active = null; redraw(); });
+      b.addEventListener("click", function () {
+        var target = document.getElementById(c.id);
+        if (target) target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+      });
+      li.appendChild(b);
+      legendEl.appendChild(li);
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll(".pub[data-cluster]"), function (el) {
+      el.addEventListener("mouseenter", function () { active = el.getAttribute("data-cluster"); redraw(); });
+      el.addEventListener("mouseleave", function () { active = null; redraw(); });
+    });
+
+    if (window.ResizeObserver) {
+      new ResizeObserver(function () { resize(); redraw(); }).observe(canvas);
+    } else {
+      window.addEventListener("resize", function () { resize(); redraw(); });
+    }
+    resize();
+    requestAnimationFrame(frame);
+  }
+
+  /* ---------- campus gallery: show only the photos that actually exist ---------- */
+  var section = document.getElementById("campus");
+  var gallery = document.getElementById("gallery");
+  if (section && gallery) {
+    var shots = Array.prototype.slice.call(gallery.querySelectorAll(".shot"));
+    var pending = shots.length;
+    var kept = 0;
+
+    var settle = function () {
+      if (--pending > 0) return;
+      if (kept > 0) {
+        section.hidden = false;
+        if (kept === 1) gallery.style.gridTemplateColumns = "minmax(0,520px)";
+        else if (kept === 2) gallery.style.gridTemplateColumns = "repeat(2,1fr)";
+      }
+    };
+
+    shots.forEach(function (shot) {
+      var img = shot.querySelector("img");
+      if (!img) { shot.remove(); settle(); return; }
+      if (img.complete) {
+        if (img.naturalWidth > 0) { kept++; } else { shot.remove(); }
+        settle();
+        return;
+      }
+      img.addEventListener("load",  function () { kept++; settle(); });
+      img.addEventListener("error", function () { shot.remove(); settle(); });
+    });
+  }
+})();
+</script>
+</body>
+</html>
